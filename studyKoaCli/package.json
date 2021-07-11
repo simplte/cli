@@ -5,7 +5,10 @@
   "main": "index.js",
   "type": "module",
   "bin": "./bin/index.js",
-  "files": ["bin", "package.json"],
+  "files": [
+    "bin",
+    "package.json"
+  ],
   "scripts": {
     "test": "rimraf ./koaProject && node index.js"
   },
@@ -16,7 +19,9 @@
     "ejs": "^3.1.6"
   },
   "dependencies": {
+    "chalk": "^4.1.1",
     "execa": "^5.1.1",
-    "inquirer": "^8.1.1"
+    "inquirer": "^8.1.1",
+    "prettier": "^2.3.2"
   }
 }
