@@ -1,10 +1,11 @@
 {
   "name": "study-koa-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "type": "module",
   "bin": "./bin/index.js",
+  "files": ["bin", "package.json"],
   "scripts": {
     "test": "rimraf ./koaProject && node index.js"
   },
