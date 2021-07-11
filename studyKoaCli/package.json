@@ -1,0 +1,21 @@
+{
+  "name": "study-koa-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": "./bin/index.js",
+  "scripts": {
+    "test": "rimraf ./koaProject && node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ejs": "^3.1.6"
+  },
+  "dependencies": {
+    "execa": "^5.1.1",
+    "inquirer": "^8.1.1"
+  }
+}
