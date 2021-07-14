@@ -1,0 +1,32 @@
+{
+  "name": "study-cli",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": "./bin/index.js",
+  "files": [
+    "bin",
+    "package.json"
+  ],
+  "scripts": {
+    "test": "rimraf ./koaProject && node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "commander": "^8.0.0",
+    "ejs": "^3.1.6",
+    "fs-extra": "^10.0.0",
+    "path": "^0.12.7",
+    "through2": "^4.0.2",
+    "vinyl-fs": "^3.0.3"
+  },
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "execa": "^5.1.1",
+    "inquirer": "^8.1.1",
+    "prettier": "^2.3.2"
+  }
+}

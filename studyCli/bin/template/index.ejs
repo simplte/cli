@@ -1,0 +1,26 @@
+const Koa =  require('koa');
+const app = new Koa();
+
+<% if(middleware.router){ %>
+    const  Router = require('koa-router')
+<% } %>
+<% if(middleware.router){ %>
+    const router = new Router()
+    router.get('/', ctx => ctx.body = "koaCli");
+    app.use(router.routes());
+<% } %>
+<% if(middleware.static){ %>
+    const serve = require("koa-static");
+<% } %>
+
+
+
+<% if(middleware.static){ %>
+    app.use(serve(__dirname +'/static'))
+<% } %>
+
+
+
+app.listen(<%= port %>, () => {
+    console.log('端口：8080')
+})
