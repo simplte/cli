@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import readBuyDetail from "./views/readBuy/index.vue";
+import demo from "./views/demo/index.vue";
 const originalPush = Router.prototype.push;
 Router.prototype.push = function push(location, onResolve, onReject) {
   if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject);
@@ -9,14 +9,13 @@ Router.prototype.push = function push(location, onResolve, onReject) {
 Vue.use(Router);
 
 const routes = [
-
   {
     path: "/",
-    name: "readBuyDetail",
+    name: "demo1",
     meta: {
       title: "111"
     },
-    component: readBuyDetail
+    component: demo
   },
 ];
 

@@ -4,7 +4,7 @@ let service = axios.create({
   headers: {
     "Content-Type": "application/json"
   },
-  timeout: 60000
+  timeout: 30000
 });
 
 // 添加请求拦截器

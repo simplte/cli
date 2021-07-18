@@ -15,7 +15,8 @@ import { ensureDirSync } from 'fs-extra';
 import { fileURLToPath } from 'url'
 import through from 'through2'
 import install from '../lib/install.js';
-
+const __dirname = fileURLToPath(import.meta.url);
+var cwd = path.join(__dirname, '../templates/cProject');
 
 
 const program = new Command();
@@ -28,11 +29,10 @@ program.version('0.0.1')
 program.parse(process.argv);
 const options = program.opts()
 if (options.init) {
-    const __dirname = fileURLToPath(import.meta.url);
     var projectPath = path.resolve(options.init)
     var projectName = path.basename(projectPath);
     ensureDirSync(projectName);
-    var cwd = path.join(__dirname, '../templates/cProject');
+    var cwd = path.join(__dirname, '../../templates/cProject');
     console.log(cwd)
     // 从demo1目录中读取除node_modules目录下的所有文件并筛选处理
     vfs.src(['**/*'], { cwd: cwd, dot: true })

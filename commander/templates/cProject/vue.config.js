@@ -5,19 +5,14 @@ let BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlug
 // 代理服务地址配置
 const proxyObj = {
   sit: {
-    api: "https://test-event.bqc.cn/bqc_new_cms",
-    image: "https://pictest.bqc.cn/bqc",
-    cmsBaseUrl: "https://event.bqc.cn/mcms"
+    api: "",
   },
   uat: {
-    api: "https://test-event.bqc.cn/bqc_uat_cms",
-    image: "https://uatpic.bqc.cn/bqc",
-    cmsBaseUrl: "https://event.bqc.cn/mcms"
+    api: "",
+ 
   },
   production: {
-    api: "https://event.bqc.cn/bqc_new_cms",
-    image: "https://www.bqc.cn",
-    cmsBaseUrl: "https://event.bqc.cn/mcms"
+    api: "",
   }
 };
 
@@ -32,22 +27,6 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: {
           "^/api": ""
-        }
-      },
-      "/cmsBaseUrl": {
-        target: proxyObj.sit.cmsBaseUrl,
-        ws: true,
-        changeOrigin: true,
-        pathRewrite: {
-          "^/cmsBaseUrl": ""
-        }
-      },
-      "/imgapi": {
-        target: proxyObj.sit.image,
-        ws: true,
-        changeOrigin: true,
-        pathRewrite: {
-          "^/imgapi": ""
         }
       }
     }

@@ -1,5 +1,6 @@
 <template>
   <div class="mianContent">
+    demo1
   </div>
 </template>
 <script>

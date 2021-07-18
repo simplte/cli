@@ -1,9 +1,0 @@
-{
-  "eslintIntegration": true,
-  "stylelintIntegration": true,
-  "tabWidth": 2,
-  "singleQuote": false,
-  "semi": true,
-  "jsxBracketSameLine": false,
-  "printWidth": 160
-}
