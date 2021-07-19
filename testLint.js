@@ -1,4 +1,5 @@
 console.log('asdf');
+
 function a() {
-  var a = 1323;
+  console.log(123);
 }
