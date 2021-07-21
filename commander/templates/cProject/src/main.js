@@ -42,10 +42,6 @@ Vue.use(VueLazyload, {
 // import vconsole from "vconsole";
 // let vConsole = new vconsole();
 // export default vConsole;
-// 百度埋点
-import ba from 'vue-ba';
-Vue.use(ba, '27c536cf1147d12629b71371bbae0198');
-Vue.use(ba, { siteId: '27c536cf1147d12629b71371bbae0198' });
 
 router.beforeEach((to, from, next) => {
 	/* 路由发生变化修改页面title */
