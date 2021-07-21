@@ -46,14 +46,6 @@ module.exports = {
       }
     }
   },
-  configureWebpack: {
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "./src/"), // 路径重写
-        "@@": path.resolve(__dirname, "./src/assets/")
-      }
-    }
-  },
   configureWebpack: config => {
     if (NOT_PRODUCTION) {
       // 开发环境生产sm文件,会在source下面生成一个webpack文件里面src是vue源码
