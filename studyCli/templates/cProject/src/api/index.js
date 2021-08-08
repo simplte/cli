@@ -1,47 +1,40 @@
-import axios from "./axios";
+import { AxiosRequest } from './axios/request';
+import { axiosCanceler as canceler } from './axios/cancel';
+import { handleError } from './axios/handleError';
 
-let instance = axios();
+async function onBeforeRequest(config) {
+  return config;
+}
 
-export default {
-  get(url, params, headers) {
-    let options = {};
+function onSuccessResponse(response) {
+  const code = response?.status;
 
-    if (params) {
-      options.params = params;
-    }
-    if (headers) {
-      options.headers = headers;
-    }
-    return instance.get(url, options);
-  },
-  post(url, params, headers) {
-    let options = {};
-
-    if (params) {
-      options.params = params;
-    }
-    if (headers) {
-      options.headers = headers;
-    }
-    return instance.post(url, params, { headers });
-  },
-  put(url, params, headers) {
-    let options = {};
-
-    if (headers) {
-      options.headers = headers;
-    }
-    return instance.put(url, params, options);
-  },
-  delete(url, params, headers) {
-    let options = {};
-
-    if (params) {
-      options.params = params;
-    }
-    if (headers) {
-      options.headers = headers;
-    }
-    return instance.delete(url, options);
+  if ((code >= 200 && code < 300) || code === 304) {
+    return Promise.resolve(response?.data);
   }
+  return Promise.reject(response);
+}
+
+function onErrorResponse(error) {
+  return Promise.reject(handleError(error));
+}
+
+const transform = {
+  onBeforeRequest,
+  onSuccessResponse,
+  onErrorResponse,
 };
+const Axios = new AxiosRequest({
+  timeout: 10 * 1000,
+  headers: {
+    'Content-Type': 'application/json;charset=UTF-8',
+    'X-Requested-With': 'XMLHttpRequest',
+  },
+  transform,
+  withCredentials: true,
+  showErrorMessage: true,
+});
+
+export default Axios;
+
+export { canceler };
