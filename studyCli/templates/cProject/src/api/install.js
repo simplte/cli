@@ -1,4 +1,4 @@
-import apiList from "./apiList";
+import apiList from './apiList';
 
 const install = function(Vue) {
   if (install.installed) {
@@ -9,11 +9,11 @@ const install = function(Vue) {
     $api: {
       get() {
         return apiList;
-      }
-    }
+      },
+    },
   });
 };
 
 export default {
-  install
+  install,
 };
