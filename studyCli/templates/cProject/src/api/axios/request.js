@@ -6,16 +6,17 @@ import { axiosRetry } from './retry.js';
 export class AxiosRequest {
   axiosInstance = null;
   options = null;
+
   constructor(options) {
     this.options = options || {};
     this.axiosInstance = axios.create(options);
-    this.setupInterceptors();
+    this.setupInterceptorsFn();
   }
 
   /**
    * @description : 拦截器配置
    */
-  setupinterceptors() {
+   setupInterceptorsFn() {
     const transform = this.options?.transform;
     // 请求拦截器配置处理
     this.axiosInstance.interceptors.request.use(async (config) => {
@@ -24,7 +25,7 @@ export class AxiosRequest {
       }
       const shouldIgnoreCancel = config?.closeCancelToken ?? this.options?.closeCancelToken;
       if (!shouldIgnoreCancel) {
-        axiosCanceler.addPending(shouldIgnoreCancel);
+        axiosCanceler.addPending(config);
       }
       return config;
     }, undefined);
@@ -41,11 +42,13 @@ export class AxiosRequest {
     // 捕获异常错误，是否尝试重试
     this.axiosInstance.interceptors.response.use(undefined, async (error) => {
       return axiosRetry(error).then(() => {
+        debugger
         this.request(error?.config);
       });
     });
     // 响应结果拦截器错误捕获
     this.axiosInstance.interceptors.response.use(undefined, async (error) => {
+      debugger
       if (transform?.onErrorResponse) {
         return transform?.onErrorResponse(error);
       }
@@ -56,6 +59,7 @@ export class AxiosRequest {
    * @description: 请求方法
    */
   request(config) {
+    console.log(config);
     return new Promise((resolve, reject) => {
       this.axiosInstance
         .request(config)

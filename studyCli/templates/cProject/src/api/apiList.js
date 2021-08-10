@@ -1,4 +1,4 @@
-import demo from './modules/demo/index';
+import demo from "./modules/demo/index";
 export default {
   demo,
 };

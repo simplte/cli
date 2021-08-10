@@ -12,7 +12,7 @@ let cmsBaseUrl = '/cmsBaseUrl';
 switch (process.env.NODE_ENV) {
   //TODO 现将地址改成这个
   case 'dev':
-    baseUrl = ''; // 测试环境sit
+    baseUrl = 'https://crm.meimei.life'; // 测试环境sit
 
     break;
   case 'pre':
