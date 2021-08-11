@@ -5,7 +5,7 @@ let BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlug
 // 代理服务地址配置
 const proxyObj = {
   sit: {
-    api: "www.test.com",
+    api: "https://crm.meimei.life",
   },
   uat: {
     api: "",

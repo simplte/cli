@@ -43,6 +43,7 @@ export class AxiosCanceler {
   removeRouterPending() {
     pendingMap.forEach(([cancel, routeChangeCancel]) => {
       if (routeChangeCancel) {
+        console.log("路径改变取消请求")
         cancel && isFunction(cancel) && cancel();
       }
     });

@@ -48,7 +48,6 @@ export class AxiosRequest {
     });
     // 响应结果拦截器错误捕获
     this.axiosInstance.interceptors.response.use(undefined, async (error) => {
-      debugger
       if (transform?.onErrorResponse) {
         return transform?.onErrorResponse(error);
       }
@@ -59,7 +58,6 @@ export class AxiosRequest {
    * @description: 请求方法
    */
   request(config) {
-    console.log(config);
     return new Promise((resolve, reject) => {
       this.axiosInstance
         .request(config)

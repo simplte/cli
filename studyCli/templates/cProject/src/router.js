@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import demo from "./views/demo/index.vue";
+import home from "./views/home/index.vue";
 const originalPush = Router.prototype.push;
 Router.prototype.push = function push(location, onResolve, onReject) {
   if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject);
@@ -16,6 +17,14 @@ const routes = [
       title: "111"
     },
     component: demo
+  },
+  {
+    path: "/home",
+    name: "home",
+    meta: {
+      title: "111"
+    },
+    component: home
   },
 ];
 
